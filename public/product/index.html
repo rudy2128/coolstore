@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tawakalputra-frozenfood</title>
+  </head>
+  <body>
+     <nav nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="https://tawakalputra.com/">FrozenFood</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="https://tawakalputra.com/">Home<span
+            class="sr-only">(current)</span></a>
+        <a class="nav-link" href="https://tawakalputra.com/product">Product</a>
+        <a class="nav-link" href="https://tawakalputra.com/admin">Admin</a>
+        <a class="nav-link" href="https://tawakalputra.com/aboutme">About me</a>
+      </div>
+    </div>
+  </nav>
+
+    </script>
+    <div div class=container>
+
+    
+      <div class="row mt-6">
+            <div class="col">
+              <h5>Transaksi</h5>
+
+            </div>
+          </div>
+      
+        <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Kode produk</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Ket</th>
+            <th scope="col">Harga</th>
+            <th scope="col">Stok</th>
+            <th scope="col">Action</th>
+          
+          </tr>
+        </thead>
+        <tbody id="product-list">
+          
+        </tbody>
+        </table>
+      </div>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<scrip src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></scrip>
+<script>
+  
+     // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+   
+   var firebaseConfig = {
+            apiKey: "AIzaSyB5MctlWNc51ctshVUTVi7x54Wo3BwKetY",
+            authDomain: "food-distributor-bf7a2.firebaseapp.com",
+            databaseURL: "https://food-distributor-bf7a2-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "food-distributor-bf7a2",
+            storageBucket: "food-distributor-bf7a2.appspot.com",
+            messagingSenderId: "848477710140",
+            appId: "1:848477710140:web:9a6af650b4b029a0486039",
+            measurementId: "G-EQTFWD57J8"
+        };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+     
+   var dbRef = Firebase.database().ref('FrozenFood').child('agenAB01').child('product');
+
+    dbRef.on("child_added", function (data, prevChildKey, e) {
+      var prod = data.val();
+      console.log(data.val())
+
+
+      $('#product-list').append(`
+             <tr>
+            <td>`+ prod.proId +`</td>
+            <td>`+ prod.title +`</td>
+            <td>`+ prod.desc +`</td>
+            <td>`+ prod.price +`</td>
+            <td>`+ prod.stock +`</td>
+            <td>`+'<a class="btn btn-primary" href="#" role="button">Transaksi</a>' + `</td>
+            </tr>
+       `);
+      try {
+
+      } catch (e) {
+
+      }
+
+
+
+    });
+
+    </script>
+   <script src=" https://tawakalputra.com/public/js/index.js"></script> 
+   <script src =  https://tawakalputra.com/public/js/ApiService.js></script>
+   <script src = https://tawakalputra.com/public/js/category_command.js></script>
+
+  
+
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+    <script src=" https://tawakalputra.com/publicj/js/index.js"></script>
+     </body>
+</html>
